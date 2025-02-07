@@ -1,0 +1,411 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.flow-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.button {
+    background-color: #89CFF0;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    min-width: 80px;
+}
+
+.flow-group {
+    display: flex;
+    flex-direction: column;
+    align-items:baseline;
+    gap: 2px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.input-box {
+    width: 60px;
+    padding: 5px;
+    text-align: right;
+    border: 1px solid #000;
+}
+
+.unit {
+    margin-left: 4px;
+    font-size: 14px;
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    width: 40px;
+    position: relative;
+}
+
+.line {
+    width: 100%;
+    height: 1.5px;
+    background-color: black;
+}
+
+.arrowhead {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 7px solid black;
+    position: absolute;
+    right: -3px;
+}
+
+.array-box {
+    border: 1px solid black;
+    padding: 15px;
+    /* transform: skew(-20deg); */
+    background-color: #89CFF0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+
+/* Split Arrows Styles */
+.split-arrows {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-left: 20px;
+}
+
+.split-arrow {
+    position: relative;
+    width: 70px;
+}
+
+.split-arrow .line {
+    position: absolute;
+    width: 100%;
+}
+
+.split-arrow.up .line {
+    transform: rotate(-45deg);
+}
+
+.split-arrow.down .line {
+    transform: rotate(45deg);
+}
+
+.split-content {
+    position: absolute;
+    left: 80px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    white-space: nowrap;
+}
+.split-content1 {
+    position:fixed;
+    right: 290px;
+    top:330px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    white-space: nowrap;
+    border: 2px solid black;
+    padding: 5px;
+    background-color: #89CFF0;
+}
+.split-content2 {
+    position:fixed;
+    right: 270px;
+    bottom:280px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    white-space: nowrap;
+    border: 2px solid black;
+    padding: 5px;
+    background-color: #89CFF0;
+}
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #89CFF0;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 600px; /* Set fixed width */
+    max-height: 80vh; /* Limit height to 80% of viewport height */
+    overflow-y: auto; /* Add scrollbar if content is too long */
+}
+
+.modal-content {
+    padding: 10px;
+    width: 80%;
+}
+
+/* Make modal responsive for smaller screens */
+@media screen and (max-width: 768px) {
+    .modal {
+        width: 90%;
+        margin: 20px auto;
+    }
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.header {
+    background-color: #89CFF0;
+    color: black;
+}
+
+.total {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+table input {
+    width: 80px;
+    padding: 4px;
+    border: 1px solid #ddd;
+    text-align: right;
+}
+
+/* Unit Panel Styles */
+.unit-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    gap: 5px;
+    border: 1px solid #89CFF0;
+    padding: 10px;
+    width: 300px;  /* Makes it broader */
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+/* You might also want to update the unit-panel container */
+.unit-panel {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: white;
+    padding: 10px 40px 0px 10px;
+    border: 2px solid #89CFF0;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* width: 100vw; */
+}
+
+/* Optional: Adjust the radio groups to fill the wider space */
+.radio-group {
+    display: flex;
+    gap: 30px;
+    padding: 5px 0;
+    justify-content: space-between;
+}
+
+.unit-row label {
+    font-size: 14px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 30px;
+}
+
+.radio-pair {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.second-line {
+    margin-left: 0;
+}
+
+input[type="radio"] {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin: 0;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked {
+    background-color: #000;
+    border: 1px solid #000;
+}
+
+.radio-pair label {
+    font-size: 14px;
+    cursor: pointer;
+}
+.close-button {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    padding: 10px 20px;
+    /* border: 2px solid black; */
+}
+
+.close-button:hover {
+    color: #fc0202;
+}
+
+.modal-content {
+    /* padding:px; */
+    width: 100%;
+    position: relative; /* Add this to position the close button */
+}
+/* Add these styles to your existing CSS */
+.flow-section {
+    border: 1px solid #add8e6;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #f0f8ff;
+}
+
+.section-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.radio-option {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.flow-input {
+    width: 100px;
+    padding: 4px;
+    text-align: right;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+}
+
+.recovery-select, .bypass-select {
+    width: 100px;
+    padding: 4px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dialog-button {
+    padding: 8px 20px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dialog-button:hover {
+    background-color: #357abd;
+}
+
+#cancelBtn {
+    background-color: #6c757d;
+}
+
+.unit {
+    color: #666;
+}
+.header-info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 20px;
+    border-bottom: 1px solid #89CFF0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-label {
+    font-size: 14px;
+    color: #333;
+}
+
+.info-input {
+    border: none;
+    padding: 4px;
+    font-size: 14px;
+    color: #666;
+    background: transparent;
+    border: 1px solid #89CFF0;
+    border-radius: 4px;
+}
+
+/* Adjust main container to account for header */
+.main-container {
+    margin-top: 60px;
+}
+

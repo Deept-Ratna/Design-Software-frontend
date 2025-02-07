@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flow Process</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Add this at the beginning of the body, before the main-container -->
+<div class="header-info">
+    <div class="info-item">
+        <span class="info-label">FILE NAME-</span>
+        <input type="text" value="XYZ SOFTWARE" class="info-input">
+    </div>
+    <div class="info-item">
+        <span class="info-label">CREATED BY-</span>
+        <input type="text" value="ABC" class="info-input">
+    </div>
+    <div class="info-item">
+        <span class="info-label">WATER TYPE:</span>
+        <input type="text" value="Sea Water" class="info-input">
+    </div>
+    <div class="info-item">
+        <span class="info-label">Pre-Treatment:</span>
+        <input type="text" value="RO Technology" class="info-input">
+    </div>
+</div>
+
+    <div class="main-container">
+        <div class="flow-container">
+            <button class="button" id="feedButton">Feed</button>
+            <div class="arrow">
+                <div class="line"></div>
+                <div class="arrowhead"></div>
+            </div>
+            <div class="flow-group">
+                <button class="button">Flow</button>
+                <div class="input-group">
+                    <input type="text" class="input-box" value="0.00">
+                    <span class="unit">gpm</span>
+                </div>
+            </div>
+            <div class="arrow">
+                <div class="line"></div>
+                <div class="arrowhead"></div>
+            </div>
+            <div class="array-box">
+                <span>Array Reactor</span>
+                <input type="text" class="input-box" value="0.00">
+                <span class="unit">%</span>
+            </div>
+            <div class="split-arrows">
+                <div class="split-arrow up">
+                    <div class="line"></div>
+                    <!-- <div class="arrowhead"></div> -->
+                    <div class="split-content1">
+                        <span>Product</span>
+                        <input type="text" class="input-box" value="0.00">
+                    </div>
+                </div>
+                <div class="split-arrow down">
+                    <div class="line"></div>
+                    <!-- <div class="arrowhead"></div> -->
+                    <div class="split-content2">
+                        <span>Concentrate</span>
+                        <input type="text" class="input-box" value="0.00">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ion Table Modal -->
+        <div id="ionTable" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <table>
+                    <tr class="header">
+                        <th>Ion</th>
+                        <th>mg/l</th>
+                    </tr>
+                    <tr><td>Calcium (Ca)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Magnesium (Mg)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Sodium (Na)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Potassium (K)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Ammonia - N (NH4)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Barium (Ba)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Strontium (Sr)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Iron (Fe)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Manganese (Mn)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr class="total"><td>Total Cations</td><td><input type="text" value="0.00" readonly></td></tr>
+                    <tr><td>Sulfate (SO4)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Chloride (Cl)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Fluoride (F)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Nitrate (NO3)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Bromide (Br)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Phosphate (PO4)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Boron (B)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Silica (SiO2)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Hydrogen Sulfide (H2S)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Bicarbonate (HCO3)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Carbon Dioxide (CO2)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Carbonate (CO3)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr class="total"><td>Total Anions</td><td><input type="text" value="0.00" readonly></td></tr>
+                </table>
+            </div>
+        </div>
+        <!-- Add this dialog to your existing HTML -->
+<div id="flowDialog" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Flow Rates</h2>
+        
+        <div class="flow-section">
+            <div class="section-title">Flow</div>
+            <div class="radio-option">
+                <input type="radio" id="specifyProduct" name="flowType" checked>
+                <label for="specifyProduct">Specify Product</label>
+                <input type="text" value="0.00" class="flow-input">
+                <span class="unit">gpm</span>
+            </div>
+            <div class="radio-option">
+                <input type="radio" id="specifyFeed" name="flowType">
+                <label for="specifyFeed">Specify Feed</label>
+                <input type="text" class="flow-input">
+                <span class="unit">gpm</span>
+            </div>
+            <div class="radio-option">
+                <input type="radio" id="specifyConcentrate" name="flowType">
+                <label for="specifyConcentrate">Specify Concentrate</label>
+                <input type="text" class="flow-input">
+                <span class="unit">gpm</span>
+            </div>
+        </div>
+
+        <div class="flow-section">
+            <div class="section-title">RO Recoveries</div>
+            <div class="input-row">
+                <label>Recovery</label>
+                <select class="recovery-select">
+                    <option value="75.00">75.00</option>
+                </select>
+                <span class="unit">%</span>
+            </div>
+        </div>
+
+        <div class="flow-section">
+            <div class="section-title">Concentrate Recycle</div>
+            <div class="radio-option">
+                <input type="radio" id="specifyFlowRate" name="recycleType">
+                <label for="specifyFlowRate">Specify Flow Rate</label>
+                <input type="radio" id="specifyPercent" name="recycleType" checked>
+                <label for="specifyPercent">Specify Percent</label>
+            </div>
+            <div class="input-row">
+                <label>RO1 to RO1Feed</label>
+                <input type="text" value="0.00" class="flow-input">
+                <span class="unit">%</span>
+            </div>
+        </div>
+
+        <div class="flow-section">
+            <div class="section-title">Feed Bypass</div>
+            <div class="radio-option">
+                <input type="radio" id="bypassFlowRate" name="bypassType" checked>
+                <label for="bypassFlowRate">Specify Flow Rate</label>
+                <input type="text" value="0.00" class="flow-input">
+                <span class="unit">gpm</span>
+            </div>
+            <div class="radio-option">
+                <input type="radio" id="bypassPercent" name="bypassType">
+                <label for="bypassPercent">Specify Percent</label>
+                <select class="bypass-select">
+                    <option value="0">0</option>
+                </select>
+                <span class="unit">%</span>
+            </div>
+        </div>
+
+        <div class="button-row">
+            <button class="dialog-button" id="cancelBtn">Cancel</button>
+            <button class="dialog-button" id="okBtn">OK</button>
+        </div>
+    </div>
+</div>
+
+        <!-- Unit Selection Panel -->
+        <div class="unit-panel">
+            <div class="unit-row">
+                <label>FLOW:</label>
+                <div class="radio-group">
+                    <div class="radio-pair">
+                        <input type="radio" id="gpm" name="flow" checked>
+                        <label for="gpm">gpm</label>
+                    </div>
+                    <div class="radio-pair">
+                        <input type="radio" id="m3hr1" name="flow" >
+                        <label for="m3hr1">m3/hr</label>
+                    </div>
+                </div>
+                <div class="radio-group second-line">
+                    <div class="radio-pair">
+                        <input type="radio" id="gpd" name="flow">
+                        <label for="gpd">gpd</label>
+                    </div>
+                    <div class="radio-pair">
+                        <input type="radio" id="m3hr2" name="flow">
+                        <label for="m3hr2">m3/hr</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="unit-row">
+                <label>Pressure:</label>
+                <div class="radio-group">
+                    <div class="radio-pair">
+                        <input type="radio" id="psi" name="pressure">
+                        <label for="psi">psi</label>
+                    </div>
+                    <div class="radio-pair">
+                        <input type="radio" id="bar" name="pressure" checked>
+                        <label for="bar">bar</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="unit-row">
+                <label>Temperature:</label>
+                <div class="radio-group">
+                    <div class="radio-pair">
+                        <input type="radio" id="fahrenheit" name="temperature" checked>
+                        <label for="fahrenheit">°F</label>
+                    </div>
+                    <div class="radio-pair">
+                        <input type="radio" id="celsius" name="temperature">
+                        <label for="celsius">°C</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<!-- Welcome to get started on your new Project.
+1.Direction to use
+2.Specify the feed ions and flow rate. 
+3.Go to flow, iput temp and pH.Select Pressure vessel and Elements-->
+
+
