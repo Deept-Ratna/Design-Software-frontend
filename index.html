@@ -30,8 +30,8 @@
     <p class="welcome-header">Welcome! To get started on your new project:</p>
     <ol>
         <li>Specify the feed flowrate or product flowrate.</li>
-        <li>Click on 'Flow' and 'Feed' to input feed data and flow rates.</li>
-        <li>Use the bottom-left panel to select pressure, flow, and temperature.</li>
+        <li>Select the technologies by dragging and dropping the corresponding process icons between the two blue arrows.</li>
+        <li>Select a water type from the dropdown list for UF, RO or ROSC.</li>
     </ol>
 </div>
 
@@ -64,7 +64,7 @@
                     <div class="line"></div>
                     <!-- <div class="arrowhead"></div> -->
                     <div class="split-content1">
-                        <span>Product</span>
+                        <button class="button">Product</button>
                         <input type="text" class="input-box" value="0.00">
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                     <div class="line"></div>
                     <!-- <div class="arrowhead"></div> -->
                     <div class="split-content2">
-                        <span>Concentrate</span>
+                        <button class="button">Concentrate</button>
                         <input type="text" class="input-box" value="0.00">
                     </div>
                 </div>
@@ -80,6 +80,68 @@
         </div>
 
         <!-- Ion Table Modal -->
+        <div id="ionTable" class="modal">
+            <div class="modal-content">
+                <!-- Add inside the modal-content div, after the first table -->
+<div class="saturation-table">
+    <h3>Saturation Data (Feed Water)</h3>
+    <table>
+        <tr>
+            <td>BaSO4</td>
+            <td>0.00 %</td>
+        </tr>
+        <tr>
+            <td>CaF2</td>
+            <td>0.00 %</td>
+        </tr>
+        <tr>
+            <td>CaSO4</td>
+            <td>0.00 %</td>
+        </tr>
+        <tr>
+            <td>SiO2</td>
+            <td>0.00 %</td>
+        </tr>
+        <tr>
+            <td>SrSO4</td>
+            <td>0.00 %</td>
+        </tr>
+    </table>
+</div>
+
+                <span class="close-button">&times;</span>
+                <table>
+                    <tr class="header">
+                        <th>Ion</th>
+                        <th>mg/l</th>
+                    </tr>
+                    <tr><td>Calcium (Ca)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Magnesium (Mg)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Sodium (Na)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Potassium (K)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Ammonia - N (NH4)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Barium (Ba)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Strontium (Sr)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Iron (Fe)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Manganese (Mn)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr class="total"><td>Total Cations</td><td><input type="text" value="0.00" readonly></td></tr>
+                    <tr><td>Sulfate (SO4)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Chloride (Cl)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Fluoride (F)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Nitrate (NO3)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Bromide (Br)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Phosphate (PO4)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Boron (B)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Silica (SiO2)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Hydrogen Sulfide (H2S)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Bicarbonate (HCO3)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Carbon Dioxide (CO2)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr><td>Carbonate (CO3)</td><td><input type="text" value="0.00"></td></tr>
+                    <tr class="total"><td>Total Anions</td><td><input type="text" value="0.00" readonly></td></tr>
+                </table>
+            </div>
+        </div>
+        <!-- xyz abc-->
         <div id="ionTable" class="modal">
             <div class="modal-content">
                 <!-- Add inside the modal-content div, after the first table -->
@@ -219,6 +281,8 @@
         </div>
     </div>
 </div>
+<!-- Add this modal structure to your HTML -->
+
 
         <!-- Unit Selection Panel -->
         <div class="unit-panel">
