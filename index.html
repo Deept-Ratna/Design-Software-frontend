@@ -26,6 +26,15 @@
         <input type="text" value="RO Technology" class="info-input">
     </div>
 </div>
+<div class="welcome-text">
+    <p class="welcome-header">Welcome! To get started on your new project:</p>
+    <ol>
+        <li>Specify the feed flowrate or product flowrate.</li>
+        <li>Select the technologies by dragging and dropping the corresponding process icons between the two blue arrows.</li>
+        <li>Select a water type from the dropdown list for UF, RO or ROSC.</li>
+    </ol>
+</div>
+
 
     <div class="main-container">
         <div class="flow-container">
@@ -73,6 +82,33 @@
         <!-- Ion Table Modal -->
         <div id="ionTable" class="modal">
             <div class="modal-content">
+                <!-- Add inside the modal-content div, after the first table -->
+<div class="saturation-table">
+    <h3>Saturation Data (Feed Water)</h3>
+    <table>
+        <tr>
+            <td>BaSO4</td>
+            <td>0.00 %</td>
+        </tr>
+        <tr>
+            <td>CaF2</td>
+            <td>0.00 %</td>
+        </tr>
+        <tr>
+            <td>CaSO4</td>
+            <td>0.00 %</td>
+        </tr>
+        <tr>
+            <td>SiO2</td>
+            <td>0.00 %</td>
+        </tr>
+        <tr>
+            <td>SrSO4</td>
+            <td>0.00 %</td>
+        </tr>
+    </table>
+</div>
+
                 <span class="close-button">&times;</span>
                 <table>
                     <tr class="header">
@@ -242,11 +278,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-<!-- Welcome to get started on your new Project.
-1.Direction to use
-2.Specify the feed ions and flow rate. 
-3.Go to flow, iput temp and pH.Select Pressure vessel and Elements-->
-
-
