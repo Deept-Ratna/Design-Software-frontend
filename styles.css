@@ -120,20 +120,20 @@ body {
     transform: rotate(45deg);
 }
 
-.split-content {
+/* .split-content {
     position: absolute;
     left: 80px;
     display: flex;
     align-items: center;
     gap: 20px;
     white-space: nowrap;
-}
+} */
 .split-content1 {
-    position:fixed;
-    right: 290px;
-    top:330px;
+    position:absolute;
+    right: -145px;
+    top:-60px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     gap: 20px;
     white-space: nowrap;
     border: 2px solid black;
@@ -141,11 +141,11 @@ body {
     background-color: #89CFF0;
 }
 .split-content2 {
-    position:fixed;
-    right: 270px;
-    bottom:280px;
+    position:absolute;
+    right: -175px;
+    bottom:-60px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     gap: 20px;
     white-space: nowrap;
     border: 2px solid black;
