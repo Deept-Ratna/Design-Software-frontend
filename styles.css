@@ -408,4 +408,52 @@ input[type="radio"]:checked {
 .main-container {
     margin-top: 60px;
 }
+.welcome-text {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    font-size: 14px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    width: 30vw;
+    height: 18vh;
+    background-color: #bdc8cc;
+}
+.welcome-header {
+    font-weight: bold;
+    color: #0047AB; /* Dark Blue color */
+    margin-bottom: 5px;
+}
 
+.welcome-text ol {
+    padding-left: 20px;
+}
+
+.welcome-text li {
+    margin-bottom: 5px;
+}
+@media screen and (max-width: 1366px) {
+    .modal {
+        width: 90%;
+        max-width: 1000px;
+    }
+    
+    .tables-container {
+        flex-direction: column;
+    }
+    
+    .saturation-table {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .modal {
+        width: 95%;
+    }
+    
+    .tables-container {
+        padding: 10px;
+    }
+}
