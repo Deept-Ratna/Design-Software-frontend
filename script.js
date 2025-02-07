@@ -165,3 +165,88 @@ const totalCationsInput = document.querySelector('#ionTable tr.total:nth-child(1
     // Initial calculation
     calculateTotals();
 });
+
+// Get DOM elements
+const productButton = document.querySelector('.split-content1 .button');
+const concentrateButton = document.querySelector('.split-content2 .button');
+const ionModal = document.getElementById('ionTable');
+const closeButtons = document.querySelectorAll('.close-button');
+
+// Ion conversion factors
+const ionFactors = {
+    'Ca': 0.0499,
+    'Mg': 0.0822,
+    'Na': 0.0435,
+    'K': 0.0256,
+    'NH4': 0.0554,
+    'Ba': 0.0146,
+    'Sr': 0.0228,
+    'Fe': 0.0358,
+    'Mn': 0.0364,
+    'SO4': 0.0208,
+    'Cl': 0.0282,
+    'F': 0.0526,
+    'NO3': 0.0161,
+    'Br': 0.0125,
+    'PO4': 0.0316,
+    'B': 0.0925,
+    'SiO2': 0.0166,
+    'H2S': 0.0588,
+    'HCO3': 0.0164,
+    'CO2': 0.0227,
+    'CO3': 0.0333
+};
+
+// Event Listeners
+productButton.addEventListener('click', () => showIonTable('product'));
+concentrateButton.addEventListener('click', () => showIonTable('concentrate'));
+
+closeButtons.forEach(button => {
+    button.addEventListener('click', closeModal);
+});
+
+// Show Ion Table Modal
+function showIonTable(type) {
+    ionModal.style.display = 'block';
+    // Add logic to differentiate between product and concentrate if needed
+}
+
+// Close Modal
+function closeModal() {
+    ionModal.style.display = 'none';
+}
+
+// Calculate meq/l values
+function calculateMeq(mgValue, ion) {
+    return (parseFloat(mgValue) * ionFactors[ion]).toFixed(4);
+}
+
+// Update Totals
+function updateTotals() {
+    let totalCationsMg = 0;
+    let totalCationsMeq = 0;
+    let totalAnionsMg = 0;
+    let totalAnionsMeq = 0;
+
+    // Calculate totals for cations and anions
+    // Add your calculation logic here
+
+    // Update total fields
+    document.querySelector('tr.total td:nth-child(2) input').value = totalCationsMg.toFixed(2);
+    document.querySelector('tr.total td:nth-child(3) input').value = totalCationsMeq.toFixed(4);
+}
+
+// Add input event listeners to mg/l inputs
+document.querySelectorAll('table input[type="text"]').forEach(input => {
+    input.addEventListener('input', function() {
+        // Calculate meq/l and update totals
+        updateTotals();
+    });
+});
+
+// Close modal when clicking outside
+window.addEventListener('click', (event) => {
+    if (event.target === ionModal) {
+        closeModal();
+    }
+});
